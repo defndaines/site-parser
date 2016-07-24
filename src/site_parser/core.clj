@@ -23,8 +23,13 @@
     (subs filename
           (inc (clojure.string/last-index-of filename \.)))))
 
-(defmethod ^:private to-site "csv" [filename] (parse-csv/to-site filename))
-(defmethod ^:private to-site "json" [filename] (parse-json/to-site filename))
+(defmethod ^:private to-site "csv" [filename]
+  (with-open [in-file (io/reader filename)]
+    (parse-csv/to-site in-file)))
+
+(defmethod ^:private to-site "json" [filename]
+  (with-open [in-file (io/reader filename)]
+    (parse-json/to-site in-file)))
 
 (defn ^:private dir-list
   "Return the full, canonical path of each file in the provided directory."
