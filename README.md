@@ -1,5 +1,14 @@
 # site-parser
-Clojure implementation of Java take-home problem.
+
+ETL project which converts all CSV and JSON files in a given directory into a
+consolidated JSON output.
+
+This is the Clojure implementation of Java take-home problem used to screen
+candidates for a team I was on. Built to provide comparison between the
+languages for Java developers unfamiliar with Clojure.
+
+The input files are lists of "sites", with unique IDs and several
+other attributes relevant to and RTB system.
 
 ## To Build
 
